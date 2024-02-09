@@ -19,6 +19,7 @@
 
 body {
   color: var(--body-text);
+  background: var(--bg-default);
 }
 
 .top-bar .branding a {
