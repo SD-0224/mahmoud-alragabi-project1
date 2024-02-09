@@ -6,6 +6,8 @@
   --lines-color: #dddddd;
   --body-text: #333333;
   --heart-color: #dc143c;
+  --section-y-space: 18px;
+  --section-x-space: 64px;
 }
 
 /* basic reset */
@@ -33,9 +35,7 @@ body {
 .top-bar {
   display: flex;
   justify-content: space-between;
-  padding: 18px;
-  padding-right: 64px;
-  padding-left: 64px;
+  padding: var(--section-y-space) var(--section-x-space);
   align-items: center;
   box-shadow: 0px 0px 4px;
 }
