@@ -24,11 +24,20 @@
             <a href="/" aria-label="Homepage">Web Topics</a>
           </h1>
           <div class="top-toggles">
-            <button aria-label="Switch Theme Mode" aria-pressed="false">
+            <button
+              class="toggle-mode"
+              onclick="changeThemeMode()"
+              aria-label=" Switch Theme Mode"
+              aria-pressed="false"
+            >
               <i class="far fa-moon"></i>
               <span class="button-label">Dark Mode</span>
             </button>
-            <button aria-label="Get Favorites" aria-pressed="false">
+            <button
+              class="toggle-favourites"
+              aria-label="Get Favorites"
+              aria-pressed="false"
+            >
               <i class="far fa-heart"></i>
               <span class="button-label"> Favourites </span>
             </button>
@@ -86,6 +95,43 @@
     </footer>
     <script src="topics.js"></script>
     <script>
+      let isDarkMode = false;
+
+      function changeThemeMode() {
+        isDarkMode = !isDarkMode;
+
+        const lightModeProps = {
+          "--bg-default": "#1A1A1A",
+          "--bg-body": "#282828",
+          "--lines-color": "#000000",
+          "--body-text": "#EDEDED",
+        };
+
+        const darkModeProps = {
+          "--bg-default": "#FFFFFF",
+          "--bg-body": "#F0F9FF",
+          "--lines-color": "#DDDDDD",
+          "--body-text": "#333333",
+        };
+
+        const modeProps = isDarkMode ? lightModeProps : darkModeProps;
+
+        const rootElement = document.querySelector(":root");
+
+        Object.entries(modeProps).map(([prop, value]) =>
+          rootElement.style.setProperty(prop, value)
+        );
+
+        const buttonIcon = isDarkMode ? "sun" : "moon";
+        const modeText = isDarkMode ? "Light" : "Dark";
+
+        const modeButtonElement = document.querySelector(".toggle-mode");
+
+        modeButtonElement.innerHTML = `
+            <i class="far fa-${buttonIcon}"></i>
+            <span class="button-label">${modeText} Mode</span>
+        `;
+      }
       document.addEventListener("DOMContentLoaded", function () {
         function createCard(card) {
           const cardElement = document.createElement("div");
@@ -93,6 +139,7 @@
 
           const cardImageStyle = `
         background:url(images/logos/${card.image});
+        background-color:white;
         background-size:cover;
         background-position:center;
         `;

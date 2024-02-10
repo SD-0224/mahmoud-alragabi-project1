@@ -8,6 +8,7 @@
   --heart-color: #dc143c;
   --section-y-space: 18px;
   --section-x-space: 64px;
+  --shadow-color: rgba(0, 0, 0, 0.2);
 }
 
 /* basic reset */
@@ -37,7 +38,7 @@ body {
   justify-content: space-between;
   padding: var(--section-y-space) var(--section-x-space);
   align-items: center;
-  box-shadow: 0px 0px 4px;
+  box-shadow: 0 0 4px var(--shadow-color);
 }
 
 /* top bar buttons */
@@ -46,7 +47,7 @@ body {
   all: unset;
   margin: 2px;
   padding: 8px;
-  border: 1px solid lightgrey;
+  border: 1px solid var(--lines-color);
   border-radius: 8px;
   cursor: pointer;
 }
@@ -65,7 +66,7 @@ body {
 
 .slanted-divider {
   height: 50%;
-  background: white;
+  background: var(--bg-default);
   position: relative;
   overflow: hidden;
   z-index: -1;
@@ -125,7 +126,7 @@ main {
   border-radius: 12px;
   background: var(--bg-default);
   width: 100%;
-  box-shadow: 0 0 8px lightgrey;
+  box-shadow: 0 0 8px var(--shadow-color);
 }
 
 /* search controls */
@@ -141,6 +142,7 @@ main {
 }
 
 .search-controls .select select {
+  color: var(--body-text);
   border: none;
   background: var(--bg-default);
   width: 100%;
@@ -195,16 +197,15 @@ main {
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 2px var(--shadow-color);
   border-radius: 10px;
   overflow: hidden;
-  background: #fff;
+  background: var(--bg-default);
 }
 
 /* card header */
 
 .card-header {
-  background-color: #f0f0f0;
   text-align: center;
   height: 130px;
 }
@@ -233,7 +234,7 @@ main {
 
 .card-author {
   font-size: 12px;
-  color: #5a5a5a;
+  color: #979797;
 }
 
 /* card rating */
