@@ -1,119 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <title>Web Topics</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="css/style.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      type=""
+      href="https://fonts.googleapis.com/css?family=Nunito+Sans"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
 
-<head>
-  <title>Web Topics</title>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link href="css/style.css" rel="stylesheet" />
-  <link rel="stylesheet" type="" href="https://fonts.googleapis.com/css?family=Nunito+Sans" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-</head>
-
-<body>
-  <header>
-    <nav aria-label="Main Navigation">
-      <div class="top-bar">
-        <h1 class="branding">
-          <a href="/" aria-label="Homepage">Web Topics</a>
-        </h1>
-        <div class="top-toggles">
-          <button aria-label="Switch Theme Mode" aria-pressed="false">
-            <i class="far fa-moon"></i>
-            <span class="button-label">Dark Mode</span>
-          </button>
-          <button aria-label="Get Favorites" aria-pressed="false">
-            <i class="far fa-heart"></i>
-            <span class="button-label"> Favourites </span>
-          </button>
-        </div>
-      </div>
-    </nav>
-    <div class="top-banner">
-      <div class="slanted-divider"></div>
-      <div class="banner-text">
-        <h1>Welcome to our website!</h1>
-        <p>We have a new design that's fresh, modern, and easy to use.</p>
-      </div>
-    </div>
-  </header>
-  <main>
-    <section class="search-section">
-      <div class="searchbar">
-        <div class="search-field">
-          <i class="fas fa-search search-icon"></i>
-          <input type="text" name="search-field" placeholder="Search the website... " />
-        </div>
-        <div class="search-controls">
-          <div class="select">
-            <div class="select-label">Sort By:</div>
-            <div class="select-field">
-              <select class="sort-options">
-                <option value="default">Default</option>
-              </select>
-            </div>
-          </div>
-          <div class="select">
-            <div class="select-label">Filter By:</div>
-            <div class="select-field">
-              <select class="filter-options">
-                <option value="default">Default</option>
-              </select>
-            </div>
+  <body>
+    <header>
+      <nav aria-label="Main Navigation">
+        <div class="top-bar">
+          <h1 class="branding">
+            <a href="/" aria-label="Homepage">Web Topics</a>
+          </h1>
+          <div class="top-toggles">
+            <button aria-label="Switch Theme Mode" aria-pressed="false">
+              <i class="far fa-moon"></i>
+              <span class="button-label">Dark Mode</span>
+            </button>
+            <button aria-label="Get Favorites" aria-pressed="false">
+              <i class="far fa-heart"></i>
+              <span class="button-label"> Favourites </span>
+            </button>
           </div>
         </div>
+      </nav>
+      <div class="top-banner">
+        <div class="slanted-divider"></div>
+        <div class="banner-text">
+          <h1>Welcome to our website!</h1>
+          <p>We have a new design that's fresh, modern, and easy to use.</p>
+        </div>
       </div>
-    </section>
-    <section>
-      <h1 class="search-results">"24" Web Topics Found</h1>
-    </section>
-    <section>
-      <div id="cards-container"></div>
-    </section>
-  </main>
-  <script src="topics.js"></script>
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      function createCard(card) {
-        const cardElement = document.createElement("div");
-        cardElement.className = "card";
+    </header>
+    <main>
+      <section class="search-section">
+        <div class="searchbar">
+          <div class="search-field">
+            <i class="fas fa-search search-icon"></i>
+            <input
+              type="text"
+              name="search-field"
+              placeholder="Search the website... "
+            />
+          </div>
+          <div class="search-controls">
+            <div class="select">
+              <div class="select-label">Sort By:</div>
+              <div class="select-field">
+                <select class="sort-options">
+                  <option value="default">Default</option>
+                </select>
+              </div>
+            </div>
+            <div class="select">
+              <div class="select-label">Filter By:</div>
+              <div class="select-field">
+                <select class="filter-options">
+                  <option value="default">Default</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section>
+        <h1 class="search-results">"24" Web Topics Found</h1>
+      </section>
+      <section>
+        <div id="cards-container"></div>
+      </section>
+    </main>
+    <script src="topics.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        function createCard(card) {
+          const cardElement = document.createElement("div");
+          cardElement.className = "card";
 
-        const cardImageStyle = `
+          const cardImageStyle = `
         background:url(images/logos/${card.image});
         background-size:cover;
         background-position:center;
         `;
 
-        const SINGLE_STAR_PERCENTAGE = 20;
-        const ratingPercentage = card.rating * SINGLE_STAR_PERCENTAGE;
+          const SINGLE_STAR_PERCENTAGE = 20;
+          const ratingPercentage = card.rating * SINGLE_STAR_PERCENTAGE;
 
-        const starSvg = `
-        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 184 32">
-          <g>
-            <path class="star-empty" d="M145.9,12.1c-0.1-0.4-0.5-0.6-0.9-0.6h-10.6l-3.5-10c-0.1-0.4-0.5-0.6-0.9-0.6c-0.5,0-0.8,0.2-0.9,0.6 l-3.5,10H115c-0.5,0-0.8,0.2-0.9,0.6c0.1,0.5,0,0.8,0.3,1.1l8.5,6.7L119.8,30c0.1,0.4,0,0.8,0.3,1.1c0.4,0.2,0.8,0.3,1.2,0L130,25l8.7,6.1c0.2,0.1,0.4,0.2,0.6,0.2c0.5,0,1-0.4,1-1c0-0.1,0-0.2-0.1-0.4l-3.1-10.1l8.5-6.7C146,12.9,146.1,12.5,145.9,12.1L145.9,12.1z" />
-            <path class="star-empty" d="M107.9,12.1c-0.1-0.4-0.5-0.6-0.9-0.6H96.4l-3.5-10c-0.1-0.4-0.5-0.6-0.9-0.6c-0.5,0-0.8,0.2-0.9,0.6l-3.5,10H77c-0.5,0-0.8,0.2-0.9,0.6c-0.1,0.5,0,0.8,0.3,1.1l8.5,6.7L81.8,30c0.1,0.4,0,0.8,0.3,1.1c0.4,0.2,0.8,0.3,1.2,0L92,25l8.7,6.1c0.2,0.1,0.4,0.2,0.6,0.2c0.5,0,1-0.4,1-1c0-0.1,0-0.2-0.1-0.4l-3.1-10.1l8.5-6.7C108,12.9,108.1,12.5,107.9,12.1L107.9,12.1z" />
-            <path class="star-empty" d="M69.9,12.1c-0.1-0.4-0.5-0.6-0.9-0.6H58.4l-3.5-10c-0.1-0.4-0.5-0.6-0.9-0.6c-0.5,0-0.8,0.2-0.9,0.6l-3.5,10H39c-0.5,0-0.8,0.2-0.9,0.6c-0.1,0.5,0,0.8,0.3,1.1l8.5,6.7L43.8,30c0.1,0.4,0,0.8,0.3,1.1c0.4,0.2,0.8,0.3,1.2,0L54,25l8.7,6.1c0.2,0.1,0.4,0.2,0.6,0.2c0.5,0,1-0.4,1-1c0-0.1,0-0.2-0.1-0.4l-3.1-10.1l8.5-6.7C70,12.9,70.1,12.5,69.9,12.1L69.9,12.1z" />
-            <path class="star-empty" d="M31.9,12.1c-0.1-0.4-0.5-0.6-0.9-0.6H20.4l-3.5-10c-0.1-0.4-0.5-0.6-0.9-0.6c-0.5,0-0.8,0.2-0.9,0.6l-3.5,10H1c-0.5,0-0.8,0.2-0.9,0.6c-0.1,0.5,0,0.8,0.3,1.1l8.5,6.7L5.8,30c-0.1,0.4,0,0.8,0.3,1.1c0.4,0.2,0.8,0.3,1.2,0L16,25l8.7,6.1c0.2,0.1,0.4,0.2,0.6,0.2c0.5,0,1-0.4,1-1c0-0.1,0-0.2-0.1-0.4l-3.1-10.1l8.5-6.7C32,12.9,32.1,12.5,31.9,12.1L31.9,12.1z" />
-            <path class="star-empty" d="M183.9,12.1L183.9,12.1c-0.1-0.4-0.5-0.6-0.9-0.6h-10.6l-3.5-10c-0.1-0.4-0.5-0.6-0.9-0.6c-0.5,0-0.8,0.2-0.9,0.6l-3.5,10H153c-0.5,0-0.8,0.2-0.9,0.6c-0.1,0.5,0,0.8,0.3,1.1l8.5,6.7L157.8,30c-0.1,0.4,0,0.8,0.3,1.1c0.4,0.2,0.8,0.3,1.2,0L168,25l8.7,6.1c0.2,0.1,0.4,0.2,0.6,0.2c0.5,0,1-0.4,1-1c0-0.1,0-0.2-0.1-0.4l-3.1-10.1l8.5-6.7C184,12.9,184.1,12.5,183.9,12.1z" />
-          </g>
-          <clipPath id="star-filled">
-            <path class="star-filled" d="M145.9,12.1c-0.1-0.4-0.5-0.6-0.9-0.6h-10.6l-3.5-10c-0.1-0.4-0.5-0.6-0.9-0.6c-0.5,0-0.8,0.2-0.9,0.6l-3.5,10H115c-0.5,0-0.8,0.2-0.9,0.6c-0.1,0.5,0,0.8,0.3,1.1l8.5,6.7L119.8,30c-0.1,0.4,0,0.8,0.3,1.1c0.4,0.2,0.8,0.3,1.2,0L130,25l8.7,6.1c0.2,0.1,0.4,0.2,0.6,0.2c0.5,0,1-0.4,1-1c0-0.1,0-0.2-0.1-0.4l-3.1-10.1l8.5-6.7C146,12.9,146.1,12.5,145.9,12.1L145.9,12.1z" />
-            <path class="star-filled" d="M107.9,12.1c-0.1-0.4-0.5-0.6-0.9-0.6H96.4l-3.5-10c-0.1-0.4-0.5-0.6-0.9-0.6c-0.5,0-0.8,0.2-0.9,0.6l-3.5,10H77c-0.5,0-0.8,0.2-0.9,0.6c-0.1,0.5,0,0.8,0.3,1.1l8.5,6.7L81.8,30c-0.1,0.4,0,0.8,0.3,1.1c0.4,0.2,0.8,0.3,1.2,0L92,25l8.7,6.1c0.2,0.1,0.4,0.2,0.6,0.2c0.5,0,1-0.4,1-1c0-0.1,0-0.2-0.1-0.4l-3.1-10.1l8.5-6.7C108,12.9,108.1,12.5,107.9,12.1L107.9,12.1z" />
-            <path class="star-filled" d="M69.9,12.1c-0.1-0.4-0.5-0.6-0.9-0.6H58.4l-3.5-10c-0.1-0.4-0.5-0.6-0.9-0.6c-0.5,0-0.8,0.2-0.9,0.6l-3.5,10H39c-0.5,0-0.8,0.2-0.9,0.6c-0.1,0.5,0,0.8,0.3,1.1l8.5,6.7L43.8,30c-0.1,0.4,0,0.8,0.3,1.1c0.4,0.2,0.8,0.3,1.2,0L54,25l8.7,6.1c0.2,0.1,0.4,0.2,0.6,0.2c0.5,0,1-0.4,1-1c0-0.1,0-0.2-0.1-0.4l-3.1-10.1l8.5-6.7C70,12.9,70.1,12.5,69.9,12.1L69.9,12.1z" />
-            <path class="star-filled" d="M31.9,12.1c-0.1-0.4-0.5-0.6-0.9-0.6H20.4l-3.5-10c-0.1-0.4-0.5-0.6-0.9-0.6c-0.5,0-0.8,0.2-0.9,0.6l-3.5,10H1c-0.5,0-0.8,0.2-0.9,0.6c-0.1,0.5,0,0.8,0.3,1.1l8.5,6.7L5.8,30c-0.1,0.4,0,0.8,0.3,1.1c0.4,0.2,0.8,0.3,1.2,0L16,25l8.7,6.1c0.2,0.1,0.4,0.2,0.6,0.2c0.5,0,1-0.4,1-1c0-0.1,0-0.2-0.1-0.4l-3.1-10.1l8.5-6.7C32,12.9,32.1,12.5,31.9,12.1L31.9,12.1z" />
-            <path class="star-filled" d="M183.9,12.1L183.9,12.1c-0.1-0.4-0.5-0.6-0.9-0.6h-10.6l-3.5-10c-0.1-0.4-0.5-0.6-0.9-0.6c-0.5,0-0.8,0.2-0.9,0.6l-3.5,10H153c-0.5,0-0.8,0.2-0.9,0.6c-0.1,0.5,0,0.8,0.3,1.1l8.5,6.7L157.8,30c-0.1,0.4,0,0.8,0.3,1.1c0.4,0.2,0.8,0.3,1.2,0L168,25l8.7,6.1c0.2,0.1,0.4,0.2,0.6,0.2c0.5,0,1-0.4,1-1c0-0.1,0-0.2-0.1-0.4l-3.1-10.1l8.5-6.7C184,12.9,184.1,12.5,183.9,12.1z" />
-          </clipPath>
-          <rect class="rect-filled" x="0" width="${ratingPercentage}%" height="32" clip-path="url(#star-filled)"/>
-        </svg>
-      `;
+          const starSvg = `
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 184 32">
+            <g>
+              <path class="star-empty" d="M145.9,12.1c-0.1-0.4-0.5-0.6-0.9-0.6h-10.6l-3.5-10c-0.1-0.4-0.5-0.6-0.9-0.6c-0.5,0-0.8,0.2-0.9,0.6 l-3.5,10H115c-0.5,0-0.8,0.2-0.9,0.6c0.1,0.5,0,0.8,0.3,1.1l8.5,6.7L119.8,30c0.1,0.4,0,0.8,0.3,1.1c0.4,0.2,0.8,0.3,1.2,0L130,25l8.7,6.1c0.2,0.1,0.4,0.2,0.6,0.2c0.5,0,1-0.4,1-1c0-0.1,0-0.2-0.1-0.4l-3.1-10.1l8.5-6.7C146,12.9,146.1,12.5,145.9,12.1L145.9,12.1z" />
+              <path class="star-empty" d="M107.9,12.1c-0.1-0.4-0.5-0.6-0.9-0.6H96.4l-3.5-10c-0.1-0.4-0.5-0.6-0.9-0.6c-0.5,0-0.8,0.2-0.9,0.6l-3.5,10H77c-0.5,0-0.8,0.2-0.9,0.6c-0.1,0.5,0,0.8,0.3,1.1l8.5,6.7L81.8,30c0.1,0.4,0,0.8,0.3,1.1c0.4,0.2,0.8,0.3,1.2,0L92,25l8.7,6.1c0.2,0.1,0.4,0.2,0.6,0.2c0.5,0,1-0.4,1-1c0-0.1,0-0.2-0.1-0.4l-3.1-10.1l8.5-6.7C108,12.9,108.1,12.5,107.9,12.1L107.9,12.1z" />
+              <path class="star-empty" d="M69.9,12.1c-0.1-0.4-0.5-0.6-0.9-0.6H58.4l-3.5-10c-0.1-0.4-0.5-0.6-0.9-0.6c-0.5,0-0.8,0.2-0.9,0.6l-3.5,10H39c-0.5,0-0.8,0.2-0.9,0.6c-0.1,0.5,0,0.8,0.3,1.1l8.5,6.7L43.8,30c0.1,0.4,0,0.8,0.3,1.1c0.4,0.2,0.8,0.3,1.2,0L54,25l8.7,6.1c0.2,0.1,0.4,0.2,0.6,0.2c0.5,0,1-0.4,1-1c0-0.1,0-0.2-0.1-0.4l-3.1-10.1l8.5-6.7C70,12.9,70.1,12.5,69.9,12.1L69.9,12.1z" />
+              <path class="star-empty" d="M31.9,12.1c-0.1-0.4-0.5-0.6-0.9-0.6H20.4l-3.5-10c-0.1-0.4-0.5-0.6-0.9-0.6c-0.5,0-0.8,0.2-0.9,0.6l-3.5,10H1c-0.5,0-0.8,0.2-0.9,0.6c-0.1,0.5,0,0.8,0.3,1.1l8.5,6.7L5.8,30c-0.1,0.4,0,0.8,0.3,1.1c0.4,0.2,0.8,0.3,1.2,0L16,25l8.7,6.1c0.2,0.1,0.4,0.2,0.6,0.2c0.5,0,1-0.4,1-1c0-0.1,0-0.2-0.1-0.4l-3.1-10.1l8.5-6.7C32,12.9,32.1,12.5,31.9,12.1L31.9,12.1z" />
+              <path class="star-empty" d="M183.9,12.1L183.9,12.1c-0.1-0.4-0.5-0.6-0.9-0.6h-10.6l-3.5-10c-0.1-0.4-0.5-0.6-0.9-0.6c-0.5,0-0.8,0.2-0.9,0.6l-3.5,10H153c-0.5,0-0.8,0.2-0.9,0.6c-0.1,0.5,0,0.8,0.3,1.1l8.5,6.7L157.8,30c-0.1,0.4,0,0.8,0.3,1.1c0.4,0.2,0.8,0.3,1.2,0L168,25l8.7,6.1c0.2,0.1,0.4,0.2,0.6,0.2c0.5,0,1-0.4,1-1c0-0.1,0-0.2-0.1-0.4l-3.1-10.1l8.5-6.7C184,12.9,184.1,12.5,183.9,12.1z" />
+            </g>
+            <clipPath id="star-filled">
+              <path class="star-filled" d="M145.9,12.1c-0.1-0.4-0.5-0.6-0.9-0.6h-10.6l-3.5-10c-0.1-0.4-0.5-0.6-0.9-0.6c-0.5,0-0.8,0.2-0.9,0.6l-3.5,10H115c-0.5,0-0.8,0.2-0.9,0.6c-0.1,0.5,0,0.8,0.3,1.1l8.5,6.7L119.8,30c-0.1,0.4,0,0.8,0.3,1.1c0.4,0.2,0.8,0.3,1.2,0L130,25l8.7,6.1c0.2,0.1,0.4,0.2,0.6,0.2c0.5,0,1-0.4,1-1c0-0.1,0-0.2-0.1-0.4l-3.1-10.1l8.5-6.7C146,12.9,146.1,12.5,145.9,12.1L145.9,12.1z" />
+              <path class="star-filled" d="M107.9,12.1c-0.1-0.4-0.5-0.6-0.9-0.6H96.4l-3.5-10c-0.1-0.4-0.5-0.6-0.9-0.6c-0.5,0-0.8,0.2-0.9,0.6l-3.5,10H77c-0.5,0-0.8,0.2-0.9,0.6c-0.1,0.5,0,0.8,0.3,1.1l8.5,6.7L81.8,30c-0.1,0.4,0,0.8,0.3,1.1c0.4,0.2,0.8,0.3,1.2,0L92,25l8.7,6.1c0.2,0.1,0.4,0.2,0.6,0.2c0.5,0,1-0.4,1-1c0-0.1,0-0.2-0.1-0.4l-3.1-10.1l8.5-6.7C108,12.9,108.1,12.5,107.9,12.1L107.9,12.1z" />
+              <path class="star-filled" d="M69.9,12.1c-0.1-0.4-0.5-0.6-0.9-0.6H58.4l-3.5-10c-0.1-0.4-0.5-0.6-0.9-0.6c-0.5,0-0.8,0.2-0.9,0.6l-3.5,10H39c-0.5,0-0.8,0.2-0.9,0.6c-0.1,0.5,0,0.8,0.3,1.1l8.5,6.7L43.8,30c-0.1,0.4,0,0.8,0.3,1.1c0.4,0.2,0.8,0.3,1.2,0L54,25l8.7,6.1c0.2,0.1,0.4,0.2,0.6,0.2c0.5,0,1-0.4,1-1c0-0.1,0-0.2-0.1-0.4l-3.1-10.1l8.5-6.7C70,12.9,70.1,12.5,69.9,12.1L69.9,12.1z" />
+              <path class="star-filled" d="M31.9,12.1c-0.1-0.4-0.5-0.6-0.9-0.6H20.4l-3.5-10c-0.1-0.4-0.5-0.6-0.9-0.6c-0.5,0-0.8,0.2-0.9,0.6l-3.5,10H1c-0.5,0-0.8,0.2-0.9,0.6c-0.1,0.5,0,0.8,0.3,1.1l8.5,6.7L5.8,30c-0.1,0.4,0,0.8,0.3,1.1c0.4,0.2,0.8,0.3,1.2,0L16,25l8.7,6.1c0.2,0.1,0.4,0.2,0.6,0.2c0.5,0,1-0.4,1-1c0-0.1,0-0.2-0.1-0.4l-3.1-10.1l8.5-6.7C32,12.9,32.1,12.5,31.9,12.1L31.9,12.1z" />
+              <path class="star-filled" d="M183.9,12.1L183.9,12.1c-0.1-0.4-0.5-0.6-0.9-0.6h-10.6l-3.5-10c-0.1-0.4-0.5-0.6-0.9-0.6c-0.5,0-0.8,0.2-0.9,0.6l-3.5,10H153c-0.5,0-0.8,0.2-0.9,0.6c-0.1,0.5,0,0.8,0.3,1.1l8.5,6.7L157.8,30c-0.1,0.4,0,0.8,0.3,1.1c0.4,0.2,0.8,0.3,1.2,0L168,25l8.7,6.1c0.2,0.1,0.4,0.2,0.6,0.2c0.5,0,1-0.4,1-1c0-0.1,0-0.2-0.1-0.4l-3.1-10.1l8.5-6.7C184,12.9,184.1,12.5,183.9,12.1z" />
+            </clipPath>
+            <rect class="rect-filled" x="0" width="${ratingPercentage}%" height="32" clip-path="url(#star-filled)"/>
+          </svg>
+        `;
 
-        const starsElement = `
+          const starsElement = `
           <div class="stars">
             ${starSvg}
           </div>
         `;
 
-        cardElement.innerHTML = `
+          cardElement.innerHTML = `
           <div class="card-header" style="${cardImageStyle}"></div>
           <div class="card-body">
             <div class="card-category">${card.category}</div>
@@ -123,20 +133,19 @@
           </div>
         `;
 
-        return cardElement;
-      }
+          return cardElement;
+        }
 
-      function renderCardsToContainer(container, cards) {
-        cards.map((cardData) => {
-          container.appendChild(createCard(cardData));
-        });
-      }
+        function renderCardsToContainer(container, cards) {
+          cards.map((cardData) => {
+            container.appendChild(createCard(cardData));
+          });
+        }
 
-      const cardsContainer = document.getElementById("cards-container");
+        const cardsContainer = document.getElementById("cards-container");
 
-      renderCardsToContainer(cardsContainer, topics);
-    });
-  </script>
-</body>
-
+        renderCardsToContainer(cardsContainer, topics);
+      });
+    </script>
+  </body>
 </html>
