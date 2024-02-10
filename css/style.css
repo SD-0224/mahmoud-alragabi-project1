@@ -258,3 +258,17 @@ main {
 .rect-filled {
   fill: gold;
 }
+
+/* footer */
+
+.footer {
+  background-color: var(--bg-body);
+  color: var(--body-text);
+  text-align: center;
+  padding: var(--section-y-space) 0;
+  position: relative;
+}
+
+.footer .heart-icon {
+  color: var(--heart-color);
+}
