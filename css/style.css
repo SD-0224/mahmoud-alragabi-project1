@@ -172,3 +172,89 @@ main {
   margin-left: 12px;
   margin-right: 24px;
 }
+
+/* search results */
+
+.search-results {
+  color: var(--body-text);
+  margin-top: 32px;
+}
+
+/* cards */
+
+#cards-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 40px;
+  margin-top: 32px;
+}
+
+/* card*/
+
+.card {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fff;
+}
+
+/* card header */
+
+.card-header {
+  background-color: #f0f0f0;
+  text-align: center;
+  height: 130px;
+}
+
+.card-header img {
+  height: 100%;
+}
+
+/* card body */
+
+.card-body {
+  padding: 15px;
+}
+
+.card-topic {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 25px;
+  color: var(--body-text);
+}
+
+.card-category {
+  font-size: 14px;
+  color: var(--body-text);
+}
+
+.card-author {
+  font-size: 12px;
+  color: #5a5a5a;
+}
+
+/* card rating */
+
+.card-rating {
+  margin-bottom: 10px;
+}
+
+.stars {
+  width: 40%;
+}
+
+.stars path {
+  stroke: gold;
+  stroke-width: 2px;
+}
+
+.star-empty {
+  fill: var(--bg-default);
+}
+
+.rect-filled {
+  fill: gold;
+}
