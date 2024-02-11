@@ -165,7 +165,7 @@ main {
   display: flex;
   justify-content: start;
   align-items: center;
-  padding: 22px 4px;
+  padding: 18px 4px;
 }
 
 .search-field input {
