@@ -46,7 +46,7 @@ body {
 .top-toggles button {
   all: unset;
   margin: 2px;
-  padding: 8px;
+  padding: 8px 16px;
   border: 1px solid var(--lines-color);
   border-radius: 8px;
   cursor: pointer;
@@ -136,6 +136,9 @@ main {
 }
 
 .search-controls .select {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   width: 100%;
   padding: 8px 12px;
   border-left: 1px solid var(--lines-color);
@@ -162,12 +165,12 @@ main {
   display: flex;
   justify-content: start;
   align-items: center;
-  padding: 8px;
+  padding: 22px 4px;
 }
 
 .search-field input {
   all: unset;
-  width: 90%;
+  width: 100%;
 }
 
 .search-field .search-icon {
@@ -189,6 +192,7 @@ main {
   grid-template-columns: repeat(5, 1fr);
   grid-gap: 40px;
   margin-top: 32px;
+  justify-items: center;
 }
 
 /* card*/
@@ -201,6 +205,7 @@ main {
   border-radius: 10px;
   overflow: hidden;
   background: var(--bg-default);
+  width: 100%;
 }
 
 /* card header */
@@ -244,7 +249,7 @@ main {
 }
 
 .stars {
-  width: 40%;
+  width: 75px;
 }
 
 .stars path {
@@ -272,4 +277,75 @@ main {
 
 .footer .heart-icon {
   color: var(--heart-color);
+}
+
+@media (max-width: 1200px) {
+  #cards-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Laptop */
+@media (max-width: 992px) {
+  #cards-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .button-label {
+    display: none;
+  }
+
+  .slanted-divider {
+    height: 35%;
+  }
+
+  .banner-text {
+    height: 65%;
+    padding: 16px;
+  }
+
+  .searchbar {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .search-controls {
+    border-top: 1px solid var(--lines-color);
+    width: 100%;
+  }
+
+  #cards-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+  :root {
+    --section-x-space: 18px;
+  }
+
+  .slanted-divider {
+    height: 25%;
+  }
+
+  .banner-text {
+    height: 75%;
+  }
+
+  .banner-text .banner-title {
+    font-size: 24px;
+  }
+
+  .banner-text .banner-subtitle {
+    font-size: 16px;
+  }
+
+  #cards-container {
+    grid-template-columns: 1fr;
+    justify-items: stretch;
+  }
 }
