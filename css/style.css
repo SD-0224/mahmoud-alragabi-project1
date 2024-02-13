@@ -233,8 +233,11 @@ main {
 }
 
 .card-category {
-  font-size: 14px;
+  font-size: 12px;
   color: var(--body-text);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .card-author {
