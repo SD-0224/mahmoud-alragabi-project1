@@ -95,6 +95,7 @@ const topics = [
     name: "Daniel Brown",
     image: "react.webp",
     topic: "React",
+    isFavourite: true,
     description:
       "React is a popular, open-source, and declarative front-end JavaScript library for building user interfaces. It was developed by Facebook and has gained widespread adoption due to its component-based architecture, virtual DOM, and ease of use. React is often used in conjunction with other libraries and frameworks to create complex web applications.",
     subtopics: [
@@ -591,6 +592,7 @@ const topics = [
     name: "Jacob Garcia",
     image: "cloud.jpeg",
     topic: "Cloud Computing",
+    isFavourite: true,
     description:
       "Cloud computing refers to the delivery of computing services, including servers, storage, databases, networking, software, analytics, and intelligence, over the internet (the cloud).",
     subtopics: [
