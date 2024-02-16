@@ -1,4 +1,5 @@
 let isDarkMode = false;
+let showFavourites = false;
 
 function fiveStarsRatingToPercentage(rating = 0) {
   const SINGLE_STAR_PERCENTAGE = 20;
@@ -130,6 +131,39 @@ function createMainCardElement(card) {
   return cardElement;
 }
 
+function createFavouriteCardHtml(card) {
+  const cardHeaderElement = createCardHeaderElement(card.image);
+  const cardTopicElement = createCardTopicElement(card.topic);
+  const cardRatingElement = createCardRatingElement(card.rating);
+
+  return `
+    ${cardHeaderElement}
+    <div class="card-body">
+      ${cardTopicElement}
+      ${cardRatingElement}
+    </div>
+  `;
+}
+
+function createFavouriteCardElement(card) {
+  const cardElement = document.createElement("div");
+
+  cardElement.className = "favourite-card";
+
+  cardElement.innerHTML = createFavouriteCardHtml(card);
+
+  return cardElement;
+}
+
+function toggleFavourites() {
+  showFavourites = !showFavourites;
+
+  const bottomDrawer = document.getElementById("bottom-drawer");
+  const translateY = `translateY(${showFavourites ? 0 : "100%"})`;
+
+  bottomDrawer.style.transform = translateY;
+}
+
 function appendElementsToContainer(container, elements) {
   elements.map((element) => container.appendChild(element));
 }
@@ -138,5 +172,11 @@ document.addEventListener("DOMContentLoaded", function () {
   const mainCardsContainer = document.getElementById("cards-container");
   const mainCardsElements = topics.map(createMainCardElement);
 
+  const favourites = topics.filter((topic) => topic.isFavourite);
+  const favouritesContainer = document.getElementById("favourites-container");
+  const favouriteCardsElements = favourites.map(createFavouriteCardElement);
+
   appendElementsToContainer(mainCardsContainer, mainCardsElements);
+
+  appendElementsToContainer(favouritesContainer, favouriteCardsElements);
 });

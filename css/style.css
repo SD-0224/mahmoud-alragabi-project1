@@ -282,6 +282,60 @@ main {
   color: var(--heart-color);
 }
 
+/* bottom drawer */
+
+.bottom-drawer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 175px;
+  background-color: var(--bg-default);
+  box-shadow: 0 0 4px 1px var(--shadow-color);
+  padding: 0px var(--section-x-space);
+  transform: translateY(100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+.favourites-container {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 15px;
+  height: 110px;
+}
+
+.favourites-title {
+  margin: 14px 0;
+}
+
+.favourite-card {
+  box-shadow: 0 0 4px 2px var(--shadow-color);
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+.favourite-card .card-header {
+  height: 60px;
+}
+
+.favourite-card .card-body {
+  padding: 0 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 50px;
+}
+
+.favourite-card .card-topic {
+  display: inline;
+  margin-bottom: 0px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.favourite-card .card-rating {
+  margin-bottom: 0px;
+}
+
 @media (max-width: 1200px) {
   #cards-container {
     grid-template-columns: repeat(4, 1fr);

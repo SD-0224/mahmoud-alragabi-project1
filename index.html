@@ -22,7 +22,8 @@
             <i class="far fa-moon"></i>
             <span class="button-label">Dark Mode</span>
           </button>
-          <button class="toggle-favourites" aria-label="Get Favorites" aria-pressed="false">
+          <button class="toggle-favourites" onclick="toggleFavourites()" aria-label="Get Favorites"
+            aria-pressed="false">
             <i class="far fa-heart"></i>
             <span class="button-label"> Favourites </span>
           </button>
@@ -76,6 +77,12 @@
   <footer class="footer">
     Developed with <i class="fas fa-heart heart-icon"></i> © 2023
   </footer>
+  <div class="bottom-drawer">
+    <div class="favourites">
+      <h4 class="favourites-title">My Favourite Topics</h4>
+      <div id="favourites-container" class="favourites-container"></div>
+    </div>
+  </div>
   <script src="js/topics.js"></script>
   <script src="js/index.js"></script>
 </body>
