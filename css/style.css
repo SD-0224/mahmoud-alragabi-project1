@@ -256,7 +256,7 @@ main {
 }
 
 .stars path {
-  stroke: gold;
+  stroke: #e5981a;
   stroke-width: 2px;
 }
 
@@ -265,7 +265,7 @@ main {
 }
 
 .rect-filled {
-  fill: gold;
+  fill: #e5981a;
 }
 
 /* footer */
