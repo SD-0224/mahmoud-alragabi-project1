@@ -49,7 +49,7 @@ function createCardHeaderElement(cardImage) {
 }
 
 function createCardTopicElement(topic) {
-  return `<div class="card-topic">${topic}</div>`;
+  return `<h4 class="card-topic">${topic}</h4>`;
 }
 
 function createCardRatingElement(rating = 0) {
