@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Web Topics</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="css/style.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+</head>
+
+<body>
+  <header>
+    <nav aria-label="Main Navigation">
+      <div class="top-bar">
+        <h1 class="branding">
+          <a href="/" aria-label="Homepage">Web Topics</a>
+        </h1>
+        <div class="top-toggles">
+          <button class="toggle-mode" onclick="changeThemeMode()" aria-label=" Switch Theme Mode" aria-pressed="false">
+            <i class="far fa-moon"></i>
+            <span class="button-label">Dark Mode</span>
+          </button>
+          <button class="toggle-favourites" onclick="toggleFavourites()" aria-label="Get Favorites"
+            aria-pressed="false">
+            <i class="far fa-heart"></i>
+            <span class="button-label"> Favourites </span>
+          </button>
+        </div>
+      </div>
+    </nav>
+    <div class="top-banner">
+      <div class="slanted-divider"></div>
+      <div class="banner-text">
+        <h1 class="banner-title">Welcome to our website!</h1>
+        <p class="banner-subtitle">
+          We have a new design that's fresh, modern, and easy to use.
+        </p>
+      </div>
+    </div>
+  </header>
+  <main></main>
+  <footer class="footer">
+    Developed with <i class="fas fa-heart heart-icon"></i> © 2023
+  </footer>
+  <div id="bottom-drawer" class="bottom-drawer">
+    <div class="favourites">
+      <h4 class="favourites-title">My Favourite Topics</h4>
+      <div id="favourites-container" class="favourites-container"></div>
+    </div>
+  </div>
+  <script src="js/topics.js"></script>
+  <script src="js/functions.js"></script>
+  <script src="js/details.js"></script>
+</body>
+
+</html>
