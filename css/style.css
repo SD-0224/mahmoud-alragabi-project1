@@ -187,7 +187,7 @@ main {
 
 /* cards */
 
-#cards-container {
+.cards-container {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-gap: 40px;
@@ -337,14 +337,14 @@ main {
 }
 
 @media (max-width: 1200px) {
-  #cards-container {
+  .cards-container {
     grid-template-columns: repeat(4, 1fr);
   }
 }
 
 /* Laptop */
 @media (max-width: 992px) {
-  #cards-container {
+  .cards-container {
     grid-template-columns: repeat(3, 1fr);
   }
 }
@@ -378,7 +378,7 @@ main {
     border-left: none;
   }
 
-  #cards-container {
+  .cards-container {
     grid-template-columns: repeat(2, 1fr);
   }
 }
@@ -405,7 +405,7 @@ main {
     font-size: 16px;
   }
 
-  #cards-container {
+  .cards-container {
     grid-template-columns: 1fr;
     justify-items: stretch;
   }
