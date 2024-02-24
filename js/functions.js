@@ -95,11 +95,11 @@ function getThemeProps(isDarkMode = false) {
 }
 
 function createThemeModeButtonHtml(isDarkMode = false) {
-  const buttonIcon = isDarkMode ? "sun" : "moon";
+  const buttonIcon = isDarkMode ? "sunny-outline" : "moon-outline";
   const themeModeText = isDarkMode ? "Light" : "Dark";
 
   return `
-    <i class="far fa-${buttonIcon}"></i>
+    <ion-icon name="${buttonIcon}"></ion-icon>
     <span class="button-label">${themeModeText} Mode</span>
   `;
 }
