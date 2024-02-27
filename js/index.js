@@ -1,3 +1,13 @@
+import {
+  createMainCardElement,
+  createFavouriteCardElement,
+} from "./modules/card.js";
+import {
+  changeThemeMode,
+  toggleFavourites,
+} from "./handlers/navbar-handlers.js";
+import { appendElementsToContainer } from "./modules/dom-manipulation.js";
+
 document.addEventListener("DOMContentLoaded", function () {
   const mainCardsContainer = document.getElementById("cards-container");
   const mainCardsElements = topics.map(createMainCardElement);
