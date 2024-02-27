@@ -8,7 +8,18 @@ import {
 } from "./handlers/navbar-handlers.js";
 import { appendElementsToContainer } from "./modules/dom-manipulation.js";
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", async function () {
+  let topics = [];
+
+  try {
+    const topicsEndpoint = "https://tap-web-1.herokuapp.com/topics/list";
+    const topicsResponse = await fetch(topicsEndpoint);
+
+    topics = await topicsResponse.json();
+  } catch (error) {
+    console.log(error);
+  }
+
   const mainCardsContainer = document.getElementById("cards-container");
   const mainCardsElements = topics.map(createMainCardElement);
 
