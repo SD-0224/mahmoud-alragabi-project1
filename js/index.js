@@ -9,4 +9,12 @@ document.addEventListener("DOMContentLoaded", function () {
   appendElementsToContainer(mainCardsContainer, mainCardsElements);
 
   appendElementsToContainer(favouritesContainer, favouriteCardsElements);
+
+  const toggleThemeModeButton = document.getElementById("toggle-mode");
+
+  toggleThemeModeButton.addEventListener("click", changeThemeMode);
+
+  const toggleFavouritesButton = document.getElementById("toggle-favourites");
+
+  toggleFavouritesButton.addEventListener("click", toggleFavourites);
 });
