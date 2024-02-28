@@ -1,61 +1,13 @@
-import {
-  createMainCardElement,
-  createFavouriteCardElement,
-} from "./modules/card.js";
+import { createFavouriteCardElement } from "./modules/card.js";
 import {
   changeThemeMode,
   toggleFavourites,
 } from "./handlers/navbar-handlers.js";
 import { appendElementsToContainer } from "./modules/dom-manipulation.js";
-
-const fetchTopics = async function (endPoint) {
-  const topicsResponse = await fetch(endPoint);
-
-  const topics = await topicsResponse.json();
-
-  return topics;
-};
-
-const renderTopics = function (topics = []) {
-  const searchResultsHeader = document.getElementById("search-results");
-
-  searchResultsHeader.innerText = `"${topics.length}" Web Topics Found`;
-
-  const mainCardsContainer = document.getElementById("cards-container");
-  const mainCardsElements = topics.map(createMainCardElement);
-
-  mainCardsContainer.innerHTML = "";
-
-  appendElementsToContainer(mainCardsContainer, mainCardsElements);
-};
-
-const fetchTopicsBySearchTerm = async function (term = "") {
-  const searchEndpoint = `https://tap-web-1.herokuapp.com/topics/list?phrase=${term}`;
-
-  const topics = await fetchTopics(searchEndpoint);
-
-  return topics;
-};
-
-const debounce = function (func, timeout = 300) {
-  let timer;
-
-  return (...args) => {
-    clearTimeout(timer);
-
-    timer = setTimeout(() => {
-      func.apply(this, args);
-    }, timeout);
-  };
-};
-
-const searchEventHandler = async (event) => {
-  const searchTerm = event.target.value.trim();
-
-  const topics = await fetchTopicsBySearchTerm(searchTerm);
-
-  renderTopics(topics);
-};
+import { fetchTopics, renderTopics } from "./modules/topics.js";
+import { debounce } from "./modules/utils.js";
+import { searchEventHandler } from "./handlers/searchbar-handlers.js";
+import { setFilterOptions } from "./modules/searchbar.js";
 
 document.addEventListener("DOMContentLoaded", async function () {
   let topics = [];
@@ -66,6 +18,8 @@ document.addEventListener("DOMContentLoaded", async function () {
     topics = await fetchTopics(topicsEndpoint);
 
     renderTopics(topics);
+
+    setFilterOptions(topics);
   } catch (error) {
     console.log(error);
   }

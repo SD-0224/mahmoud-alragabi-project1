@@ -25,6 +25,10 @@ body {
   background: var(--bg-default);
 }
 
+select option.placeholder {
+  display: none;
+}
+
 .top-bar .branding a {
   all: unset;
   cursor: pointer;
