@@ -15,7 +15,7 @@ export function changeThemeMode() {
     rootElement.style.setProperty(prop, value)
   );
 
-  const modeButtonElement = document.querySelector(".toggle-mode");
+  const modeButtonElement = document.getElementById("toggle-mode");
 
   modeButtonElement.innerHTML = createThemeModeButtonHtml(isDarkMode);
 }
