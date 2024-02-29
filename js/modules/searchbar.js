@@ -1,6 +1,24 @@
 import { createOptionElement, clearHtml } from "./dom-utils.js";
 import { appendElementsToContainer } from "./dom-manipulation.js";
 
+function createDefaultOptionElement() {
+  const defaultOption = createOptionElement("Default");
+
+  defaultOption.className = "placeholder";
+
+  return defaultOption;
+}
+
+function setSelectOptions(selectElement, options) {
+  const defaultOption = createDefaultOptionElement();
+
+  const optionsElements = [defaultOption, ...options];
+
+  clearHtml(selectElement);
+
+  appendElementsToContainer(selectElement, optionsElements);
+}
+
 export const setFilterOptions = function (topics) {
   if (!topics?.length) return;
 
@@ -9,16 +27,23 @@ export const setFilterOptions = function (topics) {
   const categories = Array.from(uniqueCategories);
 
   const filterSelect = document.getElementById("filter-select");
+  const categoriesOptions = categories.map((category) =>
+    createOptionElement(category)
+  );
 
-  const defaultOption = createOptionElement("Default");
+  setSelectOptions(filterSelect, categoriesOptions);
+};
 
-  defaultOption.className = "placeholder";
+export const setSortOptions = function () {
+  const sortOptions = [
+    { text: "Topic Title", value: "topic" },
+    { text: "Author Name", value: "name" },
+  ];
 
-  const categoriesOptions = categories.map(createOptionElement);
+  const sortSelect = document.getElementById("sort-select");
+  const options = sortOptions.map(({ text, value }) =>
+    createOptionElement(text, value)
+  );
 
-  const options = [defaultOption, ...categoriesOptions];
-
-  clearHtml(filterSelect);
-
-  appendElementsToContainer(filterSelect, options);
+  setSelectOptions(sortSelect, options);
 };

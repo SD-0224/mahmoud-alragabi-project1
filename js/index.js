@@ -6,8 +6,12 @@ import {
 import { appendElementsToContainer } from "./modules/dom-manipulation.js";
 import { fetchTopics, renderTopics } from "./modules/topics.js";
 import { debounce } from "./modules/utils.js";
-import { searchEventHandler } from "./handlers/searchbar-handlers.js";
-import { setFilterOptions } from "./modules/searchbar.js";
+import {
+  filterChangeHandler,
+  sortChangeHandler,
+  searchEventHandler,
+} from "./handlers/searchbar-handlers.js";
+import { setFilterOptions, setSortOptions } from "./modules/searchbar.js";
 
 document.addEventListener("DOMContentLoaded", async function () {
   let topics = [];
@@ -20,6 +24,8 @@ document.addEventListener("DOMContentLoaded", async function () {
     renderTopics(topics);
 
     setFilterOptions(topics);
+
+    setSortOptions();
   } catch (error) {
     console.log(error);
   }
@@ -41,4 +47,16 @@ document.addEventListener("DOMContentLoaded", async function () {
   const searchField = document.getElementById("search-field");
 
   searchField.addEventListener("input", debounce(searchEventHandler));
+
+  const filterSelect = document.getElementById("filter-select");
+
+  filterSelect.addEventListener("change", (event) =>
+    filterChangeHandler(event, topics)
+  );
+
+  const sortSelect = document.getElementById("sort-select");
+
+  sortSelect.addEventListener("change", (event) =>
+    sortChangeHandler(event, topics)
+  );
 });
