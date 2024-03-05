@@ -46,27 +46,3 @@ export function createMainCardElement(card) {
 
   return cardElement;
 }
-
-function createFavouriteCardHtml(card) {
-  const cardHeaderElement = createCardHeaderElement(card.image);
-  const cardTopicElement = createCardTopicElement(card.topic);
-  const cardRatingElement = createCardRatingElement(card.rating);
-
-  return `
-    ${cardHeaderElement}
-    <div class="card-body">
-      ${cardTopicElement}
-      ${cardRatingElement}
-    </div>
-  `;
-}
-
-export function createFavouriteCardElement(card) {
-  const cardElement = document.createElement("div");
-
-  cardElement.className = "favourite-card";
-
-  cardElement.innerHTML = createFavouriteCardHtml(card);
-
-  return cardElement;
-}
