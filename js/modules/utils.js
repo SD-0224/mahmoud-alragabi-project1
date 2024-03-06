@@ -13,3 +13,7 @@ export const debounce = function (func, timeout = 300) {
 export const deepCopy = function (object) {
   return JSON.parse(JSON.stringify(object));
 };
+
+export const entryToObject = function ([key, value]) {
+  return { [key]: value };
+};
