@@ -3,6 +3,7 @@ import {
   createCardTopicElement,
   createCardRatingElement,
 } from "./card.js";
+import { entryToObject } from "./utils.js";
 
 const createFavouriteCardHtml = function (card) {
   const cardHeaderElement = createCardHeaderElement(card.image);
@@ -44,6 +45,12 @@ export const removeFromFavourites = function (topicId) {
   if (topicId == undefined) return;
 
   localStorage.removeItem(topicId);
+};
+
+export const getAllFavourites = function () {
+  const entries = Object.entries(localStorage);
+
+  return entries.map(entryToObject);
 };
 
 export const setFavouritesCards = function (topics) {
