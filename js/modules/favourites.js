@@ -3,7 +3,6 @@ import {
   createCardTopicElement,
   createCardRatingElement,
 } from "./card.js";
-import { entryToObject } from "./utils.js";
 import { appendElementsToContainer } from "./dom-manipulation.js";
 
 const createFavouriteCardHtml = function (card) {
