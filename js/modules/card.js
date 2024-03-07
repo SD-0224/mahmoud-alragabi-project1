@@ -1,6 +1,6 @@
 import { createStarsRatingHtml } from "./stars-rating.js";
 
-function createCardHeaderElement(cardImage) {
+export function createCardHeaderElement(cardImage) {
   const cardImageStyle = `
     background:url(images/logos/${cardImage});
     background-color:white;
@@ -11,17 +11,17 @@ function createCardHeaderElement(cardImage) {
   return `<div class="card-header" style="${cardImageStyle}"></div>`;
 }
 
-function createCardTopicElement(topic) {
+export function createCardTopicElement(topic) {
   return `<h4 class="card-topic">${topic}</h4>`;
 }
 
-function createCardRatingElement(rating = 0) {
+export function createCardRatingElement(rating = 0) {
   const starsRatingHtml = createStarsRatingHtml(rating);
 
   return `<div class="card-rating">${starsRatingHtml}</div>`;
 }
 
-function createMainCardHtml(card) {
+export function createMainCardHtml(card) {
   const cardHeaderElement = createCardHeaderElement(card.image);
   const cardTopicElement = createCardTopicElement(card.topic);
   const cardRatingElement = createCardRatingElement(card.rating);
