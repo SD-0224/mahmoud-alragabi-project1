@@ -32,13 +32,17 @@ const createFavouriteCardElement = function (card) {
 export const saveToFavourites = function (topic) {
   if (topic?.id == undefined) return;
 
-  localStorage.setItem(topic.id, topic);
+  const stringifiedTopic = JSON.stringify(topic);
+
+  localStorage.setItem(topic.id, stringifiedTopic);
 };
 
 export const getFavouriteTopic = function (topicId) {
   if (topicId == undefined) return;
 
-  localStorage.getItem(topicId);
+  const stringifiedTopic = localStorage.getItem(topicId);
+
+  return JSON.parse(stringifiedTopic);
 };
 
 export const removeFromFavourites = function (topicId) {
@@ -47,10 +51,12 @@ export const removeFromFavourites = function (topicId) {
   localStorage.removeItem(topicId);
 };
 
-export const getAllFavourites = function () {
-  const entries = Object.entries(localStorage);
+export const orderById = (a, b) => a.id - b.id;
 
-  return entries.map(entryToObject);
+export const getAllFavourites = function () {
+  const values = Object.values(localStorage);
+
+  return values.map(JSON.parse).sort(orderById);
 };
 
 export const renderFavourites = function (topics) {
