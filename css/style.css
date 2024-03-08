@@ -210,6 +210,11 @@ main {
   justify-items: center;
 }
 
+.card-wrapper {
+  all: unset;
+  cursor: pointer;
+}
+
 /* card*/
 
 .card {

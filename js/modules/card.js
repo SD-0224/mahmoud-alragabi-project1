@@ -27,13 +27,15 @@ export function createMainCardHtml(card) {
   const cardRatingElement = createCardRatingElement(card.rating);
 
   return `
-    ${cardHeaderElement}
-    <div class="card-body">
-      <div class="card-category">${card.category}</div>
-      ${cardTopicElement}
-      ${cardRatingElement}
-      <div class="card-author">Author: ${card.name}</div>
-    </div>
+    <a class="card-wrapper" href="/details.html?topicId=${card.id}" target="_blank">
+      ${cardHeaderElement}
+      <div class="card-body">
+        <div class="card-category">${card.category}</div>
+        ${cardTopicElement}
+        ${cardRatingElement}
+        <div class="card-author">Author: ${card.name}</div>
+      </div>
+    </a>
   `;
 }
 
