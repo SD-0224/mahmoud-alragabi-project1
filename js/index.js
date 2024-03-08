@@ -1,9 +1,7 @@
-import { createFavouriteCardElement } from "./modules/card.js";
 import {
   changeThemeMode,
   toggleFavourites,
 } from "./handlers/navbar-handlers.js";
-import { appendElementsToContainer } from "./modules/dom-manipulation.js";
 import { fetchTopics, renderTopics } from "./modules/topics.js";
 import { debounce } from "./modules/utils.js";
 import {
@@ -12,6 +10,7 @@ import {
   searchEventHandler,
 } from "./handlers/searchbar-handlers.js";
 import { setFilterOptions, setSortOptions } from "./modules/searchbar.js";
+import { getAllFavourites, renderFavourites } from "./modules/favourites.js";
 
 document.addEventListener("DOMContentLoaded", async function () {
   let topics = [];
@@ -30,11 +29,9 @@ document.addEventListener("DOMContentLoaded", async function () {
     console.log(error);
   }
 
-  const favourites = topics.filter((topic) => topic.isFavourite);
-  const favouritesContainer = document.getElementById("favourites-container");
-  const favouriteCardsElements = favourites.map(createFavouriteCardElement);
+  const favourites = getAllFavourites();
 
-  appendElementsToContainer(favouritesContainer, favouriteCardsElements);
+  renderFavourites(favourites);
 
   const toggleThemeModeButton = document.getElementById("toggle-mode");
 
