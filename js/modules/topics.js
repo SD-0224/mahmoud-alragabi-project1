@@ -88,3 +88,55 @@ const renderSubTopics = function (topicInfo) {
 
   subTopicsContainer.innerHTML = subTopicsHtml;
 };
+
+const createDetailsCardImageHtml = function (imageFileName) {
+  const imagePath = `images/logos/${imageFileName}`;
+
+  return `
+    <div class="image">
+      <img src="${imagePath}" alt="${imageFileName}" />
+    </div>
+  `;
+};
+
+const createDetailsCardTitleHtml = function (topicInfo) {
+  const { topic: topicTitle, name: authorName } = topicInfo;
+
+  return `
+    <div class="title">
+      <b>${topicTitle}</b>
+      by <a href="#">${authorName}</a>
+    </div>
+  `;
+};
+
+const createDetailsCardHtml = function (topicInfo, isFavourite = false) {
+  const imageElement = createDetailsCardImageHtml(topicInfo.image);
+  const titleElement = createDetailsCardTitleHtml(topicInfo);
+
+  const toggleFavouriteText = isFavourite ? "Remove from" : "Add to";
+
+  return `
+    ${imageElement} 
+    <div class="content">
+      ${titleElement}
+      <div class="call-to-action">
+        <p class="top-text">Interested about this topic?</p>
+        <button id="toggle-topic-favourite">
+          <span>${toggleFavouriteText} Favourites</span>
+          <ion-icon name="heart-outline" size="large"></ion-icon>
+        </button>
+        <p class="bottom-text">Unlimited Credits</p>
+      </div>
+    </div>
+  `;
+};
+
+export const renderDetailsCard = function (topicInfo, isFavourite = false) {
+  const detailsCardContainerId = "details-card-container";
+  const detailsCardContainer = document.getElementById(detailsCardContainerId);
+
+  const detailsCardHtml = createDetailsCardHtml(topicInfo, isFavourite);
+
+  detailsCardContainer.innerHTML = detailsCardHtml;
+};
