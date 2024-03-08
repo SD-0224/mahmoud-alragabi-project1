@@ -50,3 +50,41 @@ export const fetchTopicDetails = async function (topicId) {
 
   return topic;
 };
+
+const createSubTopicsTitleHtml = function (topicTitle) {
+  return `<h1 class="subtopics-title">${topicTitle} Sub Topics</h1>`;
+};
+
+const createSubTopicsListItemHtml = function (itemText) {
+  return `
+    <li class="subtopic-item">
+      <ion-icon name="checkmark-circle-outline" class="list-item-icon"></ion-icon>
+      ${itemText}
+    </li>
+`;
+};
+const createSubTopicsHtml = function (topicInfo) {
+  const { topic: topicTitle, subtopics } = topicInfo;
+
+  const topicTitleElement = createSubTopicsTitleHtml(topicTitle);
+
+  const subTopicsItems = subtopics.map((subTopicText) =>
+    createSubTopicsListItemHtml(subTopicText)
+  );
+
+  const subTopicsItemsHtml = subTopicsItems.join("");
+
+  return ` 
+    ${topicTitleElement}
+    <ul class="subtopics-list">
+      ${subTopicsItemsHtml}
+    </ul>
+  `;
+};
+
+const renderSubTopics = function (topicInfo) {
+  const subTopicsContainer = document.getElementById("subtopics-container");
+  const subTopicsHtml = createSubTopicsHtml(topicInfo);
+
+  subTopicsContainer.innerHTML = subTopicsHtml;
+};
