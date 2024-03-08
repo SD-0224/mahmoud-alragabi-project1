@@ -1,7 +1,3 @@
-import {
-  changeThemeMode,
-  toggleFavourites,
-} from "./handlers/navbar-handlers.js";
 import { fetchTopics, renderTopics } from "./modules/topics.js";
 import { debounce } from "./modules/utils.js";
 import {
@@ -10,9 +6,11 @@ import {
   searchEventHandler,
 } from "./handlers/searchbar-handlers.js";
 import { setFilterOptions, setSortOptions } from "./modules/searchbar.js";
-import { getAllFavourites, renderFavourites } from "./modules/favourites.js";
+import { defaultPageSetup } from "./shared.js";
 
 document.addEventListener("DOMContentLoaded", async function () {
+  defaultPageSetup();
+
   let topics = [];
 
   try {
@@ -28,18 +26,6 @@ document.addEventListener("DOMContentLoaded", async function () {
   } catch (error) {
     console.log(error);
   }
-
-  const favourites = getAllFavourites();
-
-  renderFavourites(favourites);
-
-  const toggleThemeModeButton = document.getElementById("toggle-mode");
-
-  toggleThemeModeButton.addEventListener("click", changeThemeMode);
-
-  const toggleFavouritesButton = document.getElementById("toggle-favourites");
-
-  toggleFavouritesButton.addEventListener("click", toggleFavourites);
 
   const searchField = document.getElementById("search-field");
 
