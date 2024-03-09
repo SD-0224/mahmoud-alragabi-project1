@@ -4,6 +4,7 @@ import {
   createCardRatingElement,
 } from "./card.js";
 import { appendElementsToContainer } from "./dom-manipulation.js";
+import { clearHtml } from "./dom-utils.js";
 
 const createFavouriteCardHtml = function (card) {
   const cardHeaderElement = createCardHeaderElement(card.image);
@@ -65,7 +66,7 @@ export const renderFavourites = function (topics) {
   const favouritesContainer = document.getElementById("favourites-container");
   const favouriteCardsElements = topics.map(createFavouriteCardElement);
 
-  favouritesContainer.innerHTML = "";
+  clearHtml(favouritesContainer);
 
   appendElementsToContainer(favouritesContainer, favouriteCardsElements);
 };
