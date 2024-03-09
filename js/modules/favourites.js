@@ -65,5 +65,7 @@ export const renderFavourites = function (topics) {
   const favouritesContainer = document.getElementById("favourites-container");
   const favouriteCardsElements = topics.map(createFavouriteCardElement);
 
+  favouritesContainer.innerHTML = "";
+
   appendElementsToContainer(favouritesContainer, favouriteCardsElements);
 };
