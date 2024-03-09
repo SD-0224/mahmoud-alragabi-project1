@@ -1,4 +1,5 @@
 import { getThemeProps, createThemeModeButtonHtml } from "../modules/theme.js";
+import { getAllFavourites, renderFavourites } from "../modules/favourites.js";
 
 let isDarkMode = false;
 let showFavourites = false;
@@ -22,6 +23,12 @@ export function changeThemeMode() {
 
 export function toggleFavourites() {
   showFavourites = !showFavourites;
+
+  if (showFavourites) {
+    const favourites = getAllFavourites();
+
+    renderFavourites(favourites);
+  }
 
   const bottomDrawer = document.getElementById("bottom-drawer");
   const translateY = `translateY(${showFavourites ? 0 : "100%"})`;
