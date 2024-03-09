@@ -1,11 +1,13 @@
 import { getThemeProps, createThemeModeButtonHtml } from "../modules/theme.js";
 import { getAllFavourites, renderFavourites } from "../modules/favourites.js";
+import { getStorageItem, setStorageItem } from "../modules/storage.js";
 
-let isDarkMode = false;
 let showFavourites = false;
 
-export function changeThemeMode() {
-  isDarkMode = !isDarkMode;
+export function setThemeMode(isThemeDark) {
+  const isDarkMode = isThemeDark ?? getStorageItem("isDarkMode");
+
+  setStorageItem("isDarkMode", isDarkMode);
 
   const rootElement = document.querySelector(":root");
 
