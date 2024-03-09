@@ -1,6 +1,7 @@
 import { createMainCardElement } from "./card.js";
 import { appendElementsToContainer } from "./dom-manipulation.js";
 import { clearHtml } from "./dom-utils.js";
+import { createStarsRatingHtml } from "./stars-rating.js";
 import { deepCopy } from "./utils.js";
 
 export const fetchTopics = async function (endPoint) {
@@ -139,4 +140,36 @@ export const renderDetailsCard = function (topicInfo, isFavourite = false) {
   const detailsCardHtml = createDetailsCardHtml(topicInfo, isFavourite);
 
   detailsCardContainer.innerHTML = detailsCardHtml;
+};
+
+const createTopicCategoryHtml = function (topicCategory) {
+  return `<h4 class="category">${topicCategory}</h4>`;
+};
+
+const createTopicTitleHtml = function (topicTitle) {
+  return `<h2>${topicTitle}</h2>`;
+};
+
+const createTopicContentHtml = function (topicInfo) {
+  const { topic: topicTitle } = topicInfo;
+  const topicCategoryElement = createTopicCategoryHtml(topicInfo.category);
+  const topicTitleElement = createTopicTitleHtml(topicTitle);
+  const starsRatingElement = createStarsRatingHtml(topicInfo.rating);
+
+  return `
+    ${topicCategoryElement}
+    ${topicTitleElement}
+    <div class="stars-rating">
+      ${starsRatingElement}
+    </div>
+    <article class="topic-description">${topicInfo.description}</article>
+  `;
+};
+
+export const renderTopicContent = function (topicInfo) {
+  const topicContentHtml = createTopicContentHtml(topicInfo);
+
+  const topicContent = document.getElementById("topic-content");
+
+  topicContent.innerHTML = topicContentHtml;
 };
