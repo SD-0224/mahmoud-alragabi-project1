@@ -41,6 +41,14 @@ export const saveToFavourites = function (topic) {
   setStorageItem("favourites", favourites);
 };
 
+export const isFavouriteTopic = function (topicInfo) {
+  const foundFavouriteTopic = getFavouriteTopic(topicInfo.id);
+
+  const isFavourite = foundFavouriteTopic != undefined;
+
+  return isFavourite;
+};
+
 export const getFavouriteTopic = function (topicId) {
   if (topicId == undefined) return;
 

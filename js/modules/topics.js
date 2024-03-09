@@ -3,7 +3,7 @@ import { appendElementsToContainer } from "./dom-manipulation.js";
 import { clearHtml } from "./dom-utils.js";
 import { createStarsRatingHtml } from "./stars-rating.js";
 import { deepCopy } from "./utils.js";
-import { getFavouriteTopic } from "./favourites.js";
+import { isFavouriteTopic } from "./favourites.js";
 
 export const fetchTopics = async function (endPoint) {
   const topicsResponse = await fetch(endPoint);
@@ -175,16 +175,8 @@ export const renderTopicContent = function (topicInfo) {
   topicContent.innerHTML = topicContentHtml;
 };
 
-export const isTopicFavourite = function (topicInfo) {
-  const foundFavouriteTopic = getFavouriteTopic(topicInfo.id);
-
-  const isFavourite = foundFavouriteTopic != undefined;
-
-  return isFavourite;
-};
-
 export const renderTopicDetails = function (topicInfo) {
-  const isFavourite = isTopicFavourite(topicInfo);
+  const isFavourite = isFavouriteTopic(topicInfo);
 
   renderTopicContent(topicInfo);
 
