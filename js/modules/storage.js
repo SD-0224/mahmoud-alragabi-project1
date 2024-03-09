@@ -10,3 +10,7 @@ export function setStorageItem(key, value) {
 
   localStorage.setItem(key, stringifiedIValue);
 }
+
+export function removeStorageItem(key) {
+  localStorage.removeItem(key);
+}
