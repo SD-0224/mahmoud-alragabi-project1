@@ -64,7 +64,13 @@ export const getFavouriteTopic = function (topicId) {
 export const removeFromFavourites = function (topicId) {
   if (topicId == undefined) return;
 
-  localStorage.removeItem(topicId);
+  const favourites = getAllFavourites();
+
+  if (!favourites?.length) return;
+
+  removeFromArrayBy(favourites, { id: topicId });
+
+  setStorageItem("favourites", favourites);
 };
 
 export const orderById = (a, b) => a.id - b.id;
