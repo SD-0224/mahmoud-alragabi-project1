@@ -5,6 +5,7 @@ import {
 } from "./card.js";
 import { appendElementsToContainer } from "./dom-manipulation.js";
 import { clearHtml } from "./dom-utils.js";
+import { getStorageItem } from "./storage.js";
 
 const createFavouriteCardHtml = function (card) {
   const cardHeaderElement = createCardHeaderElement(card.image);
@@ -61,9 +62,9 @@ export const removeFromFavourites = function (topicId) {
 export const orderById = (a, b) => a.id - b.id;
 
 export const getAllFavourites = function () {
-  const values = Object.values(localStorage);
+  const favourites = getStorageItem("favourites");
 
-  return values.map(JSON.parse).sort(orderById);
+  return favourites;
 };
 
 export const renderFavourites = function (topics) {
