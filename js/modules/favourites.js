@@ -38,7 +38,7 @@ export const saveToFavourites = function (topic) {
 
   favourites.push(topic);
 
-  setStorageItem(favourites);
+  setStorageItem("favourites", favourites);
 };
 
 export const getFavouriteTopic = function (topicId) {
