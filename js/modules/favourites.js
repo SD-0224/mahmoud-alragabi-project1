@@ -30,6 +30,12 @@ const createFavouriteCardElement = function (card) {
   return cardElement;
 };
 
+const updateFavourites = function (favourites) {
+  const stringifiedFavourites = JSON.stringify(favourites);
+
+  localStorage.setItem("favourites", stringifiedFavourites);
+};
+
 export const saveToFavourites = function (topic) {
   if (topic?.id == undefined) return;
 
