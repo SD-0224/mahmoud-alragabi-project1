@@ -1,13 +1,16 @@
 import { renderFavourites, getAllFavourites } from "./modules/favourites.js";
 import {
-  changeThemeMode,
+  toggleThemeMode,
+  setThemeMode,
   toggleFavourites,
 } from "./handlers/navbar-handlers.js";
 
-export const setupTopBarHandlers = function () {
+export const sharedPageSetup = function () {
+  setThemeMode();
+
   const toggleThemeModeButton = document.getElementById("toggle-mode");
 
-  toggleThemeModeButton.addEventListener("click", changeThemeMode);
+  toggleThemeModeButton.addEventListener("click", toggleThemeMode);
 
   const toggleFavouritesButton = document.getElementById("toggle-favourites");
 

@@ -1,5 +1,5 @@
 import { fetchTopicDetails, renderTopicDetails } from "./modules/topics.js";
-import { setupTopBarHandlers } from "./shared.js";
+import { sharedPageSetup } from "./shared.js";
 import {
   getAllFavourites,
   isFavouriteTopic,
@@ -9,7 +9,7 @@ import {
 } from "./modules/favourites.js";
 
 document.addEventListener("DOMContentLoaded", async function () {
-  setupTopBarHandlers();
+  sharedPageSetup();
 
   const urlQueries = new URLSearchParams(window.location.search);
   const topicId = urlQueries.get("topicId");
