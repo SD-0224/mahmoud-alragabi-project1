@@ -173,3 +173,11 @@ export const renderTopicContent = function (topicInfo) {
 
   topicContent.innerHTML = topicContentHtml;
 };
+
+export const renderTopicDetails = function (topicInfo, isFavourite = false) {
+  renderTopicContent(topicInfo);
+
+  renderDetailsCard(topicInfo, isFavourite);
+
+  renderSubTopics(topicInfo);
+};
