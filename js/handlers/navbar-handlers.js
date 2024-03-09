@@ -23,6 +23,14 @@ export function setThemeMode(isThemeDark) {
   modeButtonElement.innerHTML = createThemeModeButtonHtml(isDarkMode);
 }
 
+export function toggleThemeMode() {
+  let isDarkMode = getStorageItem("isDarkMode") ?? false;
+
+  isDarkMode = !isDarkMode;
+
+  setThemeMode(isDarkMode);
+}
+
 export function toggleFavourites() {
   showFavourites = !showFavourites;
 
