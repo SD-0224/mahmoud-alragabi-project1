@@ -4,7 +4,7 @@ import {
   toggleFavourites,
 } from "./handlers/navbar-handlers.js";
 
-export const defaultPageSetup = function () {
+export const sharedPageSetup = function () {
   const favourites = getAllFavourites();
 
   renderFavourites(favourites);

@@ -6,10 +6,10 @@ import {
   searchEventHandler,
 } from "./handlers/searchbar-handlers.js";
 import { setFilterOptions, setSortOptions } from "./modules/searchbar.js";
-import { defaultPageSetup } from "./shared.js";
+import { sharedPageSetup } from "./shared.js";
 
 document.addEventListener("DOMContentLoaded", async function () {
-  defaultPageSetup();
+  sharedPageSetup();
 
   let topics = [];
 
