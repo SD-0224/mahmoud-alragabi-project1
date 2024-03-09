@@ -45,6 +45,9 @@ export const getFavouriteTopic = function (topicId) {
   if (topicId == undefined) return;
 
   const favourites = getAllFavourites();
+
+  if (!favourites?.length) return;
+
   const foundTopic = favourites.find(({ id }) => id == topicId);
 
   return foundTopic;
