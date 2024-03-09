@@ -6,6 +6,7 @@ import {
 import { appendElementsToContainer } from "./dom-manipulation.js";
 import { clearHtml } from "./dom-utils.js";
 import { getStorageItem, setStorageItem } from "./storage.js";
+import { removeFromArrayBy } from "./utils.js";
 
 const createFavouriteCardHtml = function (card) {
   const cardHeaderElement = createCardHeaderElement(card.image);
@@ -82,9 +83,10 @@ export const getAllFavourites = function () {
 };
 
 export const renderFavourites = function (topics) {
-  if (!topics?.length) return;
-
   const favouritesContainer = document.getElementById("favourites-container");
+
+  if (!topics?.length) return clearHtml(favouritesContainer);
+
   const favouriteCardsElements = topics.map(createFavouriteCardElement);
 
   clearHtml(favouritesContainer);
