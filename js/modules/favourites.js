@@ -44,9 +44,10 @@ export const saveToFavourites = function (topic) {
 export const getFavouriteTopic = function (topicId) {
   if (topicId == undefined) return;
 
-  const stringifiedTopic = localStorage.getItem(topicId);
+  const favourites = getAllFavourites();
+  const foundTopic = favourites.find(({ id }) => id == topicId);
 
-  return JSON.parse(stringifiedTopic);
+  return foundTopic;
 };
 
 export const removeFromFavourites = function (topicId) {
