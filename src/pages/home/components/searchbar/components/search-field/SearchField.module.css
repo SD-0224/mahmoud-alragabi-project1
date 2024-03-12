@@ -1,0 +1,22 @@
+/* search field */
+
+.search-field {
+  all: unset;
+  width: 100%;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  padding: 18px 4px;
+}
+
+.search-field input {
+  all: unset;
+  width: 100%;
+}
+
+.search-field .search-icon {
+  display: flex;
+  margin-left: 12px;
+  margin-right: 18px;
+  font-size: 18px;
+}
