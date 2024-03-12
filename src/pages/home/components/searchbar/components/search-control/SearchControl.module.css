@@ -1,0 +1,21 @@
+.select {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  padding: 8px 12px;
+  border-left: 1px solid var(--lines-color);
+}
+
+.select select {
+  color: var(--body-text);
+  border: none;
+  background: var(--bg-default);
+  width: 100%;
+}
+
+.select .select-label {
+  font-size: 12px;
+  padding-left: 4px;
+  padding-bottom: 4px;
+}
