@@ -19,3 +19,11 @@
   padding-left: 4px;
   padding-bottom: 4px;
 }
+
+/* Tablet */
+
+@media (max-width: 768px) {
+  .select:first-child {
+    border-left: none;
+  }
+}
