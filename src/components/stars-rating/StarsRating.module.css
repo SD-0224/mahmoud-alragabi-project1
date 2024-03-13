@@ -1,0 +1,16 @@
+.stars {
+  width: 75px;
+}
+
+.stars path {
+  stroke: #e5981a;
+  stroke-width: 2px;
+}
+
+.star-empty {
+  fill: #0000;
+}
+
+.rect-filled {
+  fill: #e5981a;
+}
