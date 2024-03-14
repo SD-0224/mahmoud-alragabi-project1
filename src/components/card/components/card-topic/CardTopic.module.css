@@ -1,0 +1,17 @@
+/* .card-topic { */
+/*   display: inline; */
+/*   margin-bottom: 0px; */
+/*   white-space: nowrap; */
+/*   text-overflow: ellipsis; */
+/* } */
+
+.card-topic {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 25px;
+  color: var(--body-text);
+}
