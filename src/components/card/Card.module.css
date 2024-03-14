@@ -1,0 +1,39 @@
+/* card*/
+
+.card {
+  box-shadow: 0 0 12px var(--shadow-color);
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--bg-default);
+  width: 100%;
+  height: 285px;
+}
+
+.card-wrapper {
+  all: unset;
+  cursor: pointer;
+}
+
+.card-body {
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.card-category {
+  font-size: 12px;
+  color: var(--body-text);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.card-author {
+  font-size: 12px;
+  color: #979797;
+}
+
+.card-rating {
+  margin-bottom: 10px;
+}
