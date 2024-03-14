@@ -1,0 +1,14 @@
+/* card header */
+
+.card-header {
+  text-align: center;
+  height: 130px;
+  background-color: #fff;
+}
+
+.card-header img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
