@@ -8,9 +8,11 @@ export const SearchBar = function () {
     placeholder: "Search the website... ",
   };
 
+  const defaultOption = { text: "Default", value: "" };
+
   const searchControls = [
-    { label: "Sort By:", options: [] },
-    { label: "Filter By:", options: [] },
+    { label: "Sort By:", options: [defaultOption] },
+    { label: "Filter By:", options: [defaultOption] },
   ];
 
   return (
