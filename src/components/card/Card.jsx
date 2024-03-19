@@ -3,22 +3,22 @@ import { StarsRating } from "../stars-rating";
 import { CardTopic } from "./components/card-topic";
 import { CardHeader } from "./components/card-header";
 
-export const Card = function (card) {
+export const Card = function ({ id, image, category, topic, rating, name }) {
   return (
     <div className={styles["card"]}>
       <a
         className={styles["card-wrapper"]}
-        href={`/details.html?topicId=${card.id}`}
+        href={`/details.html?topicId=${id}`}
         target="_blank"
       >
-        <CardHeader cardImage={card.image} />
+        <CardHeader cardImage={image} />
         <div className={styles["card-body"]}>
-          <div className={styles["card-category"]}>{card.category}</div>
-          <CardTopic topic={card.topic} />
+          <div className={styles["card-category"]}>{category}</div>
+          <CardTopic topic={topic} />
           <div className={styles["card-rating"]}>
-            <StarsRating rating={card.rating} />
+            <StarsRating rating={rating} />
           </div>
-          <div className={styles["card-author"]}>Author: {card.name}</div>
+          <div className={styles["card-author"]}>Author: {name}</div>
         </div>
       </a>
     </div>
