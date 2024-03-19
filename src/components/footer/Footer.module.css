@@ -1,0 +1,19 @@
+/* footer */
+
+.footer {
+  background-color: var(--bg-body);
+  color: var(--body-text);
+  text-align: center;
+  padding: var(--section-y-space) 0;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer .heart-icon {
+  color: var(--heart-color);
+  font-size: 22px;
+  margin: 0 4px;
+  display: flex;
+}

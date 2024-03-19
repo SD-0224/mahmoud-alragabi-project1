@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Home } from "../pages/home";
 import { Header } from "../components/header";
+import { Footer } from "../components/footer";
 
 export const Layout = function () {
   return (
@@ -16,6 +17,7 @@ export const Layout = function () {
           </Routes>
         </BrowserRouter>
       </main>
+      <Footer />
     </>
   );
 };
