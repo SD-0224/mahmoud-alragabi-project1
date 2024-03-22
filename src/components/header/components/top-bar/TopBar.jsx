@@ -3,7 +3,7 @@ import styles from "./TopBar.module.css";
 export const TopBar = function ({ siteTitle, buttons = [] }) {
   return (
     <nav aria-label="Main Navigation">
-      <div className={styles["top-bar"]}>
+      <div className={`${styles["top-bar"]} container`}>
         <h1 className={styles["branding"]}>
           <a href="/" aria-label="Homepage">
             {siteTitle}

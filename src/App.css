@@ -27,7 +27,7 @@ body {
   background: var(--bg-default);
 }
 
-main {
+.container {
   padding: var(--section-y-space) var(--section-x-space);
   background: var(--bg-body);
 }

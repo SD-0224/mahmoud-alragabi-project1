@@ -12,7 +12,7 @@ export const Home = function () {
     : "";
 
   return (
-    <>
+    <div className="container">
       <section className={styles["search-section"]}>
         <SearchBar />
       </section>
@@ -26,6 +26,6 @@ export const Home = function () {
           ))}
         </div>
       </section>
-    </>
+    </div>
   );
 };
