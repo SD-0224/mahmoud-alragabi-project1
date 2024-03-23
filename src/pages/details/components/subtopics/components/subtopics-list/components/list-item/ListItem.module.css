@@ -1,0 +1,16 @@
+.subtopic-item {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  border-top: 2px solid var(--lines-color);
+  padding: 16px 24px;
+}
+
+.subtopic-item .list-item-icon {
+  color: #03c181;
+  font-size: 24px;
+  margin-right: 12px;
+  display: flex;
+  flex-shrink: 0;
+}
