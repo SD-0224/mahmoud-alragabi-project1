@@ -1,0 +1,13 @@
+.toggle-favourite-button {
+  all: unset;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  cursor: pointer;
+  padding: 16px;
+  margin: 8px 0;
+  width: -webkit-fill-available;
+  background: #03c181;
+  color: #fff;
+  font-size: 22px;
+}
