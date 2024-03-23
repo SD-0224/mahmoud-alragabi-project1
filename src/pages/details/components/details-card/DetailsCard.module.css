@@ -1,0 +1,37 @@
+.details-card {
+  position: absolute;
+  left: calc(60% + 32px);
+  top: 0;
+  width: 325px;
+  min-height: 425px;
+  background: #fff;
+  color: #000;
+  z-index: 1;
+  box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.1);
+  padding: 2px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+@media (max-width: 992px) {
+  .details-card {
+    display: none;
+  }
+}
+
+/* Laptop */
+@media (max-width: 992px) {
+  .details-card {
+    display: none;
+  }
+
+  section.top,
+  .bottom-container {
+    width: 82%;
+  }
+
+  .topic-content {
+    width: 100%;
+  }
+}
