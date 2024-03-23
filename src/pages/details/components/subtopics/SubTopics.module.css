@@ -1,0 +1,13 @@
+.subtopics-container {
+  width: 60%;
+  background: var(--bg-default);
+  border: 1px solid var(--lines-color);
+  border-radius: 5px;
+}
+
+/* Laptop */
+@media (max-width: 992px) {
+  .subtopics-container {
+    width: 100%;
+  }
+}
