@@ -2,10 +2,11 @@ import styles from "./SearchBar.module.css";
 import { SearchControl } from "./components/search-control";
 import { SearchField } from "./components/search-field";
 
-export const SearchBar = function () {
+export const SearchBar = function ({ onChange }) {
   const searchFieldProps = {
     icon: "search-outline",
     placeholder: "Search the website... ",
+    onChange,
   };
 
   const defaultOption = { text: "Default", value: "" };
