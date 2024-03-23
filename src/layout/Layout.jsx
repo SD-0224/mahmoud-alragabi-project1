@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Home } from "../pages/home";
+import { Details } from "../pages/details";
 import { Header } from "../components/header";
 import { Footer } from "../components/footer";
 
@@ -12,6 +13,7 @@ export const Layout = function () {
           <Routes>
             <Route path="/">
               <Route index element={<Home />} />
+              <Route path="details/:id" element={<Details />} />
               <Route path="*" element={<h1>404 Page Not Found</h1>} />
             </Route>
           </Routes>
