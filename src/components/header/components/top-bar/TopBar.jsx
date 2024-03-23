@@ -17,6 +17,7 @@ export const TopBar = function ({ siteTitle, buttons = [] }) {
               className={styles[button.className]}
               aria-label={button.ariaLabel}
               aria-pressed="false"
+              onClick={button.onClick}
             >
               <ion-icon name={button.icon}></ion-icon>
               <span className={styles["button-label"]}>{button.text}</span>

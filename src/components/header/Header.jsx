@@ -1,15 +1,32 @@
+import { useEffect, useState } from "react";
 import { TopBanner } from "./components/top-banner";
 import { TopBar } from "./components/top-bar";
+import { setThemeMode } from "../../modules/theme";
+import { getStorageItem } from "../../modules/storage";
 
 export const Header = function () {
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  useEffect(() => {
+    const savedThemeMode = getStorageItem("isDarkMode");
+    const themeMode = savedThemeMode ?? isDarkMode;
+
+    setThemeMode(themeMode, setIsDarkMode);
+  }, []);
+
   const topBarProps = {
     siteTitle: "Web Topics",
     buttons: [
       {
-        text: "Dark Mode",
-        icon: "moon-outline",
+        text: `${isDarkMode ? "Light" : "Dark"} Mode`,
+        icon: isDarkMode ? "sunny-outline" : "moon-outline",
         className: "toggle-mode",
         ariaLabel: "Switch Theme Mode",
+        onClick: () => {
+          const themeMode = !isDarkMode;
+
+          setThemeMode(themeMode, setIsDarkMode);
+        },
       },
       {
         text: "Favourites",
