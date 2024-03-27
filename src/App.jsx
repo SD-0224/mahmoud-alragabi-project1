@@ -1,10 +1,13 @@
 import "./App.css";
+import { MainContextProvider } from "./contexts/main-context";
 import { Layout } from "./layout";
 
 function App() {
   return (
     <div className="App">
-      <Layout />
+      <MainContextProvider>
+        <Layout />
+      </MainContextProvider>
     </div>
   );
 }
