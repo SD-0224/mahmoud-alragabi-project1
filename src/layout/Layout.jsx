@@ -3,6 +3,7 @@ import { Home } from "../pages/home";
 import { Details } from "../pages/details";
 import { Header } from "../components/header";
 import { Footer } from "../components/footer";
+import { BottomDrawer } from "../components/bottom-drawer/BottomDrawer";
 
 export const Layout = function () {
   return (
@@ -20,6 +21,7 @@ export const Layout = function () {
         </BrowserRouter>
       </main>
       <Footer />
+      <BottomDrawer></BottomDrawer>
     </>
   );
 };
