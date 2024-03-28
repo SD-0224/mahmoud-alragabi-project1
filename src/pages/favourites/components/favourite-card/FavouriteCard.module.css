@@ -1,0 +1,15 @@
+.favourite-card {
+  box-shadow: 0 0 4px 2px var(--shadow-color);
+  border-radius: 5px;
+  min-width: 120px;
+  overflow: hidden;
+  height: 110px;
+}
+
+.card-body {
+  padding: 0 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 50px;
+}
