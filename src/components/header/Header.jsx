@@ -3,9 +3,11 @@ import { TopBanner } from "./components/top-banner";
 import { TopBar } from "./components/top-bar";
 import { setThemeMode } from "../../modules/theme";
 import { getStorageItem } from "../../modules/storage";
+import { useMainContext } from "../../contexts/main-context";
 
 export const Header = function () {
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const { setShowFavourites } = useMainContext();
 
   useEffect(() => {
     const savedThemeMode = getStorageItem("isDarkMode");
@@ -33,6 +35,7 @@ export const Header = function () {
         icon: "heart-outline",
         className: "toggle-favourites",
         ariaLabel: "Get Favourites",
+        onClick: () => setShowFavourites((showFavourites) => !showFavourites),
       },
     ],
   };
