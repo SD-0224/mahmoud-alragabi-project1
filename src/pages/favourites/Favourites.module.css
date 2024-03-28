@@ -1,0 +1,14 @@
+.favourites-container {
+  display: flex;
+  gap: 15px;
+  height: 125px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: thin;
+  padding: 0 4px;
+}
+
+.favourites-title {
+  margin: 14px 0;
+  padding: 0 4px;
+}
