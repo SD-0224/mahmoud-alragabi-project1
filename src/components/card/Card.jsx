@@ -8,7 +8,7 @@ export const Card = function ({ id, image, category, topic, rating, name }) {
   return (
     <div className={styles["card"]}>
       <Link className={styles["card-wrapper"]} to={`/details/${id}`}>
-        <CardHeader cardImage={image} />
+        <CardHeader cardImage={image} height="130px" />
         <div className={styles["card-body"]}>
           <div className={styles["card-category"]}>{category}</div>
           <CardTopic topic={topic} />
