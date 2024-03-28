@@ -4,6 +4,7 @@ import { Details } from "../pages/details";
 import { Header } from "../components/header";
 import { Footer } from "../components/footer";
 import { BottomDrawer } from "../components/bottom-drawer/BottomDrawer";
+import { Favourites } from "../pages/favourites/Favourites";
 
 export const Layout = function () {
   return (
@@ -21,7 +22,9 @@ export const Layout = function () {
         </BrowserRouter>
       </main>
       <Footer />
-      <BottomDrawer></BottomDrawer>
+      <BottomDrawer>
+        <Favourites />
+      </BottomDrawer>
     </>
   );
 };
